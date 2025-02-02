@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="icon" href="../static/images/camera_logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style th:insert="~{blocks/style :: style}"></style>
+</head>
+<body>
+<header th:insert="~{blocks/login :: login}"></header>
+<header th:insert="~{blocks/header :: header}"></header>
+    <div class="centered">
+        <h2>Вы успешно зарегистрированы!</h2>
+    </div>
+    <div class="centered">
+        <h3>Сейчас откроется форма для авторизации</h3>
+    </div>
+
+    <script>
+        setTimeout(function () {
+            window.location.href = "/login"; // Укажи нужный URL
+        }, 3000); // 3000 миллисекунд = 3 секунды
+    </script>
+</body>
+</html>

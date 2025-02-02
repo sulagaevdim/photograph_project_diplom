@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Успешно!</title>
+    <link rel="icon" href="/images/camera_logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style th:insert="~{userPages/blocks/style :: style}"></style>
+</head>
+<body>
+<header th:insert="~{blocks/login-for-user :: login-for-user}"></header>
+<br>
+<header th:insert="~{userPages/blocks/header :: header}"></header>
+<div class="centered">
+    <h1>Запись на фотосессию успешно зарегистрирована!</h1>
+    <h2>В ближайшее время фотограф с Вами свяжется для подтверждения записи</h2>
+    <h2>Статус записи можно отслеживать во вкладке <a href="/user/active-order">Текущая запись</a> </h2>
+    <br>
+    <p><a href="/user">вернуться на главную</a></p>
+</div>
+</body>
+</html>

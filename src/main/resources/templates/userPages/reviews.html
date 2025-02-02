@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Отзывы</title>
+    <link rel="icon" href="/images/camera_logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style th:insert="~{userPages/blocks/style :: style}"></style>
+    <style>
+        .container2 {
+            display: flex; /* Делаем элементы в строку */
+            align-items: center; /* Выравниваем по центру */
+            gap: 20px; /* Отступ между фото и текстом */
+            max-width: 1200px; /* Ограничение ширины */
+            margin: 50px auto; /* Центрируем блок */
+            border: 1px solid #ddd; /* Рамка */
+            padding: 20px;
+            border-radius: 10px; /* Скругление углов */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
+        }
+
+        .container2 img {
+            width: 600px; /* Ширина изображения */
+            height: auto;
+            border-radius: 20px; /* Скругление */
+        }
+
+        .text {
+            max-width: 500px;
+        }
+
+        .text h2 {
+            margin: 0;
+            font-size: 22px;
+            color: #333;
+        }
+
+        .text p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.5;
+        }
+        .reviews-container {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 20px;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .review {
+            background: white;
+            padding: 50px;
+            border-radius: 10px;
+
+            min-width: 280px;
+        }
+
+        .review h3 {
+            margin: 0 0 5px;
+            color: #333;
+        }
+
+        .review p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .review .rating {
+            color: gold;
+            font-size: 18px;
+        }
+
+        @media (max-width: 600px) {
+            .review {
+                width: 100%; /* На маленьких экранах по 1 отзыву */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header th:insert="~{blocks/login-for-user :: login-for-user}"></header>
+    <br>
+    <header th:insert="~{userPages/blocks/header :: header}"></header>
+
+    <div th:if="${limitReview}">
+        <div class="centered">
+            <p>Вы уже оставляли отзыв</p>
+        </div>
+    </div>
+    <div th:unless="${limitReview}">
+        <div class="centered">
+            <form action="/user/reviews" method="post">
+                <label>Вы можете оставить свой отзыв:</label>
+                <input type="text" name="comment" placeholder="Ваш отзыв" required>
+                <label>Оценка:</label>
+                <select id="options" name="exellent">
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                    <option value=5>5</option>
+                </select>
+                <button type="submit">Оставить отзыв</button>
+            </form>
+        </div>
+    </div>
+    <div class="centered">
+        <h1>Отзывы</h1>
+        <p th:text="'(средний рейтинг = ' + ${averageRate} + ')'"></p>
+    </div>
+    <div class="reviews-container">
+        <div class="review" th:each="review : ${reviews}">
+            <h2 th:text="${review.name}"></h2>
+            <p th:text="'Оценка: ' + ${review.exellent} + '     Дата публикации: ' + ${review.publicDate}"></p>
+            <br>
+            <div th:if="${review.comment}==null">
+                <p>(Оценка без отзыва)</p>
+            </div>
+            <div th:unless="${review.comment}==null">
+                <p th:text="'Отзыв: ' + ${review.comment}"></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

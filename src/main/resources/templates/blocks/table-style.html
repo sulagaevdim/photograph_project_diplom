@@ -1,0 +1,34 @@
+<div th:fragment="table-style">
+    <style>
+        /* Основные стили для таблицы */
+        table {
+            width: 100%;
+            margin: auto; /*выравнивание таблицы по центру*/
+            border-collapse: collapse; /* Убирает двойные линии между ячейками */
+            display: block;
+        }
+
+        /* Стили для шапки таблицы */
+        th {
+            background-color: #7d43d6; /* Цвет фона шапки */
+            color: white; /* Цвет текста */
+            padding: 10px; /* Отступы в ячейках шапки */
+            text-align: center; /* Выравнивание текста по центру */
+        }
+
+        /* Стили для ячеек таблицы */
+        td {
+            padding: 8px; /* Отступы в ячейках */
+            border: 1px solid #787878; /* Линии между ячейками */
+        }
+
+        /* Чередование цветов строк */
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd; /* Цвет строки при наведении */
+        }
+    </style>
+</div>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>"Главная | Фотограф Наталья Сулагаева"/</title>
+    <link rel="icon" href="/images/camera_logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style th:insert="~{blocks/style :: style}"></style>
+    <style>
+        .container2 {
+            display: flex; /* Делаем элементы в строку */
+            align-items: center; /* Выравниваем по центру */
+            gap: 100px; /* Отступ между фото и текстом */
+            max-width: 1600px; /* Ограничение ширины */
+            margin: 50px auto; /* Центрируем блок */
+            /*border: 1px solid #ddd; /* Рамка */
+            padding: 20px;
+            border-radius: 10px; /* Скругление углов */
+            /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
+        }
+
+        .container2 img {
+            width: 350px; /* Ширина изображения */
+            height: auto;
+            border-radius: 20px; /* Скругление */
+        }
+
+        .text {
+            max-width: 600px;
+        }
+
+        .text h2 {
+            margin: 0;
+            font-size: 22px;
+            color: #333;
+        }
+
+        .text p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <header th:insert="~{blocks/login :: login}"></header>
+    <header th:insert="~{blocks/header :: header}"></header>
+        <div class="container2">
+            <img src="/images/photograph.jpg" alt="Фото Натальи Сулагаевой">
+            <div class="text">
+                <div style="text-align: center;">
+                    <h2>Приветствую тебя на моем сайте!</h2>
+                    <h3>Меня зовут Наталья Сулагаева, мне 30 лет, я профессионально занимаюсь фотографией.</h3>
+                    <h3>Имею профильное образование, коммуникабельна и ответственна, использую профессиональное оборудование.</h3>
+                    <br>
+                    <h2>Предлагаю вам следующие услуги:</h2>
+                    <br>
+                        <ul class="navbar">
+                            <li><a href="/price#face">Портретная фотосессия</a></li>
+                            <li><a href="/price#family">Семейная фотосессия</a></li>
+                        </ul>
+                    <br>
+                    <ul class="navbar">
+                        <li><a href="/price#walk">Прогулочная фотосессия</a></li>
+                        <li><a href="/price#study">Студийная фотосессия</a></li>
+                    </ul>
+                    <br>
+                    <ul class="navbar">
+                        <li><a href="/price">Свадебная съёмка</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

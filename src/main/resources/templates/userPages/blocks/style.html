@@ -1,0 +1,104 @@
+<div th:fragment="style">
+    <style>
+        /* Стили для шапки */
+        header {
+            background-color: #ffffff; /* Цвет фона */
+            color: #f3f3f3; /* Цвет текста */
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Стили для меню навигации */
+        .navbar {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .rega {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: right;
+            white-space: nowrap;
+        }
+
+        .navbar li {
+            margin: 0 5px; /* Отступы между вкладками */
+        }
+        .rega li {
+            margin: 0 5px; /* Отступы между вкладками */
+            white-space: nowrap;
+        }
+
+        .navbar a {
+            color: #040202; /* Цвет текста */
+            background-color: #f4f4f4;
+            text-decoration: none; /* Убираем подчеркивание */
+            font-size: 17px;
+            padding: 10px 20px;
+            display: block;
+            border-radius: 5px;
+        }
+        .rega a {
+            color: #040202; /* Цвет текста */
+            background-color: #f4f4f4;
+            text-decoration: none; /* Убираем подчеркивание */
+            font-size: 15px;
+            padding: 5px 20px;
+            display: block;
+            border-radius: 10px;
+            white-space: nowrap;
+        }
+
+        /* Стиль для активной вкладки */
+        .navbar a:hover {
+            background-color: #7d43d6; /* Цвет при наведении */
+        }
+        .rega a:hover {
+            background-color: #7d43d6; /* Цвет при наведении */
+            white-space: nowrap;
+        }
+        .container {
+            display: flex; /* Используем flexbox для расположения элементов в строку */
+            align-items: normal; /* Выравнивание по вертикали */
+            gap: 100px; /* Отступ между изображением и текстом */
+            margin: 20px;
+        }
+        .container img {
+            max-width: 300px; /* Устанавливаем максимальную ширину изображения */
+            height: auto; /* Сохраняем пропорции изображения */
+            border-radius: 10px; /* Скругление углов (опционально) */
+        }
+        .container .text {
+            max-width: 1000px; /* Ограничиваем ширину текста */
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+
+        }
+        h1, h2, h3 {
+            font-family: 'Roboto', serif; /* Красивый шрифт для заголовков */
+            color: #2c3e50;
+        }
+        body {
+            font-family: 'Roboto', sans-serif; /* Основной шрифт для текста */
+            line-height: 1.6;
+            margin: 20px;
+            color: #333;
+        }
+        .no-wrap {
+            white-space: nowrap;
+        }
+        .centered {
+            position: relative;
+            padding: 20px;
+            background-color: #ffffff;
+            text-align: center;
+            justify-content: center;
+            border-radius: 10px;
+            margin: 0 auto;
+        }
+    </style>
+</div>

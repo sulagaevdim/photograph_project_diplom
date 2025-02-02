@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="icon" href="../static/images/camera_logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style th:insert="~{blocks/style :: style}"></style>
+</head>
+<body>
+    <header th:insert="~{blocks/login :: login}"></header>
+    <header th:insert="~{blocks/header :: header}"></header>
+    <div class="centered">
+        <h2>Регистрация</h2>
+    </div>
+
+    <div class="container2">
+    <div class="content" style="text-align: right;">
+        <form>
+            <label>Логин:</label>
+            <br>
+            <label>Пароль:</label>
+            <br>
+            <label>Email:</label>
+            <br>
+            <label>Имя:</label>
+            <br>
+            <label>Фамилия:</label>
+            <br>
+            <label>Номер телефона:</label>
+            <br>
+        </form>
+    </div>
+    <div class="content" style="text-align: center;">
+        <form th:action="@{/registration}" method="POST" th:object="${user}">
+            <input type="text" th:field="*{login}" required>
+            <br>
+            <input type="password" id="password" th:field="*{password}" required>
+            <br>
+            <input type="email" th:field="*{email}" required>
+            <br>
+            <input type="text" th:field="*{firstName}" required>
+            <br>
+            <input type="text" th:field="*{lastName}" required>
+            <br>
+            <input type="number" th:field="*{phoneNumber}" placeholder="в любом формате" required>
+            <br>
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+    </div>
+    </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("form[th\\:action='@{/registration}']");
+        const password = document.getElementById("password");
+        const email = document.querySelector("input[type='email']");
+
+        form.addEventListener("submit", function (event) {
+            let isValid = true;
+            let errorMessage = ""; // Собираем все ошибки в одну строку
+
+            // Проверка пароля (минимум 6 символов)
+            if (password.value.length < 6) {
+                errorMessage += "Пароль должен содержать минимум 6 символов!\n";
+                isValid = false;
+            }
+
+            // Проверка email
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email.value)) {
+                errorMessage += "Введите корректный email!\n";
+                isValid = false;
+            }
+
+            // Если есть ошибки, показываем alert и отменяем отправку формы
+            if (!isValid) {
+                alert(errorMessage);
+                event.preventDefault(); // Останавливаем отправку формы
+            }
+        });
+    });
+</script>
+</body>
+</html>

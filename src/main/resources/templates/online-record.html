@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:text-align="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>"Онлайн запись"/</title>
+    <link rel="icon" href="/images/camera_logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style th:insert="~{blocks/style :: style}"></style>
+</head>
+<body>
+    <header th:insert="~{blocks/login :: login}"></header>
+    <header th:insert="~{blocks/header :: header}"></header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h2 class="centered" >Для доступа к свободным датам и записи, </h2>
+    <h2 class="centered">Пожалуйста, <a href="/login">авторизируйтесь</a> или <a href="/registration"> зарегистрируйтесь</a> </h2>
+    <br>
+    <p class="centered">* после регистрации вы получите постоянную скидку в размере 5% на услуги фотографа</p>
+    <p class="centered">** после проведенной фотосессии вы получите постоянную скидку в размере 10% на услуги фотографа</p>
+</body>
+</html>

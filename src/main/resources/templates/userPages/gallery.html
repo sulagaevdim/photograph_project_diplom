@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>"Галерея"/</title>
+  <link rel="icon" href="/images/camera_logo.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style th:insert="~{userPages/blocks/style :: style}"></style>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+    #slider {
+      width: 800px;
+      height: 450px;
+      overflow: hidden;
+      margin: auto;
+    }
+    #slider img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+    <header th:insert="~{blocks/login-for-user :: login-for-user}"></header>
+    <br>
+    <header th:insert="~{userPages/blocks/header :: header}"></header>
+    <h2>Примеры моих работ:</h2>
+    <div id="slider">
+      <img id="slide" src="/images/examples/1.jpg" alt="Слайд">
+    </div>
+
+    <script>
+      // Список изображений (добавь сюда свои файлы!)
+      let images = [
+        "/images/examples/1.jpg",
+        "/images/examples/2.jpg",
+        "/images/examples/3.jpg",
+        "/images/examples/4.jpg",
+        "/images/examples/5.jpg",
+        "/images/examples/6.jpg",
+        "/images/examples/7.jpg"
+      ];
+
+      let index = 0; // Индекс текущего изображения
+      let imgElement = document.getElementById("slide");
+
+      function nextImage() {
+        index = (index + 1) % images.length; // Переключаем индекс (зацикливаем)
+        imgElement.src = images[index]; // Меняем изображение
+      }
+
+      setInterval(nextImage, 3000); // Менять фото каждые 3 секунды
+    </script>
+
+</body>
+</html>

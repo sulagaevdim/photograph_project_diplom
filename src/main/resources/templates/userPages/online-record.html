@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Онлайн запись</title>
+    <link rel="icon" href="/images/camera_logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style th:insert="~{userPages/blocks/style :: style}"></style>
+    <style th:insert="~{blocks/table-style :: table-style}"></style>
+</head>
+<body>
+    <header th:insert="~{blocks/login-for-user :: login-for-user}"></header>
+    <br>
+    <header th:insert="~{userPages/blocks/header :: header}"></header>
+<div class="container">
+    <div class="centered">
+        <div th:if="${isActiveOrder}">
+            <h2>У вас уже имеется активная запись на фотосессию</h2>
+        </div>
+        <div th:unless="${isActiveOrder}">
+            <div th:if="${#lists.isEmpty(freeDays)}">Отсутствуют свободные даты</div>
+            <div th:unless="${#lists.isEmpty(freeDays)}">
+            <div class="content" style="text-align: center; margin: auto">
+                <h2>Список свободных дней</h2>
+            </div>
+                <div class="centered">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Свободная дата</th>
+                        <th>8:00</th>
+                        <th>9:00</th>
+                        <th>10:00</th>
+                        <th>11:00</th>
+                        <th>12:00</th>
+                        <th>13:00</th>
+                        <th>14:00</th>
+                        <th>15:00</th>
+                        <th>16:00</th>
+                        <th>17:00</th>
+                        <th>18:00</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="day : ${freeDays}">
+                        <td th:text="${day.date}"></td>
+                        <td> <p th:if="${day.eight}"><a th:href="'/user/online-record/setEight/' + ${day.id}">Свободно</a></p>
+                            <p th:unless="${day.eight}">Занято</p>
+                        </td>
+                        <td> <p th:if="${day.nine}"><a th:href="'/user/online-record/setNine/' + ${day.id}">Свободно</a></p>
+                            <p th:unless="${day.nine}">Занято</p>
+                        </td>
+                        <td> <p th:if="${day.ten}"><a th:href="'/user/online-record/setTen/' + ${day.id}">Свободно</a></p>
+                            <p th:unless="${day.ten}">Занято</p>
+                        </td>
+                        <td> <p th:if="${day.eleven}"><a th:href="'/user/online-record/setEleven/' + ${day.id}">Свободно</a></p>
+                            <p th:unless="${day.eleven}">Занято</p>
+                        </td>
+                        <td> <p th:if="${day.twelve}"><a th:href="'/user/online-record/setTwelve/' + ${day.id}">Свободно</a></p>
+                            <p th:unless="${day.twelve}">Занято</p>
+                        </td>
+                        <td> <p th:if="${day.thirteen}"><a th:href="'/user/online-record/setThirteen/' + ${day.id}">Свободно</a></p>
+                            <p th:unless="${day.thirteen}">Занято</p>
+                        </td>
+                        <td> <p th:if="${day.fourteen}"><a th:href="'/user/online-record/setFourteen/' + ${day.id}">Свободно</a></p>
+                            <p th:unless="${day.fourteen}">Занято</p>
+                        </td>
+                        <td> <p th:if="${day.fifteen}"><a th:href="'/user/online-record/setFifteen/' + ${day.id}">Свободно</a></p>
+                            <p th:unless="${day.fifteen}">Занято</p>
+                        </td>
+                        <td> <p th:if="${day.sixteen}"><a th:href="'/user/online-record/setSixteen/' + ${day.id}">Свободно</a></p>
+                            <p th:unless="${day.sixteen}">Занято</p>
+                        </td>
+                        <td> <p th:if="${day.seventeen}"><a th:href="'/user/online-record/setSeventeen/' + ${day.id}">Свободно</a></p>
+                            <p th:unless="${day.seventeen}">Занято</p>
+                        </td>
+                        <td> <p th:if="${day.eighteen}"><a th:href="'/user/online-record/setEighteen/' + ${day.id}">Свободно</a></p>
+                            <p th:unless="${day.eighteen}">Занято</p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

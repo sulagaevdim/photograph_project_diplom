@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Вход в систему</title>
+    <link rel="icon" href="/images/camera_logo.png" type="image/x-icon">
+    <style th:insert="~{blocks/style :: style}"></style>
+</head>
+<body>
+    <header th:insert="~{blocks/login :: login}"></header>
+    <header th:insert="~{blocks/header :: header}"></header>
+    <div class="content" style="text-align: center;">
+        <form class="login-form" method="post" action="/login">
+            <h2>Пожалуйста, авторизируйтесь</h2>
+            <p>
+                <label for="username" class="screenreader">Логин</label>
+                <input type="text" id="username" name="username" placeholder="введите логин" required autofocus>
+            </p>
+            <p>
+                <label for="password" class="screenreader">Пароль</label>
+                <input type="password" id="password" name="password" placeholder="введите пароль" required>
+            </p>
+            <button type="submit" class="primary">Войти</button>
+        </form>
+        <div th:if="${param.error}">
+            <p style="color: red;">Неверный логин или пароль</p>
+        </div>
+        <div th:if="${param.logout}">
+            <p style="color: green;">Вы вышли из системы</p>
+        </div>
+    </div>
+</body>
+</html>

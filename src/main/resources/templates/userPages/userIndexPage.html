@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Главная | ' + ${name}"/>
+    <link rel="icon" href="/images/camera_logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style th:insert="~{userPages/blocks/style :: style}"></style>
+
+</head>
+<body>
+<header th:insert="~{blocks/login-for-user :: login-for-user}"></header>
+<br>
+<header th:insert="~{userPages/blocks/header :: header}"></header>
+<br>
+<br>
+    <div class="centered">
+        <h1 th:text="${name} + ', я рада Вас приветствовать!'"/>
+        <br>
+        <h2>Для записи на фотосессию выберите </h2>
+        <h2>вкладку "Онлайн запись", или нажмите <a href="/user/online-record">сюда</a></h2>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты</title>
+    <link rel="icon" href="/images/camera_logo.png" type="image/x-icon">
+    <style th:insert="~{blocks/style :: style}"></style>
+</head>
+<body>
+    <header th:insert="~{blocks/login :: login}"></header>
+    <header th:insert="~{blocks/header :: header}"></header>
+    <div class="container">
+    <div style="text-align: left;">
+        <h1>Контакты</h1>
+        <h3>Для записи на фотосъемку, пожалуйста, авторизируйтесь и выберите удобную свободную дату </h3>
+        <h3>По остальным вопросам можете воспользоваться контактами ниже, или заполнить форму </h3>
+        <br>
+        <div><strong>Локация:</strong> г.Ульяновск</div>
+        <div><strong>Телефон:</strong> +7 (904) 129-85-17</div>
+        <div><strong>Email:</strong> sulagaevanv@mail.ru</div>
+        <div><strong>VK:</strong> https://vk.com/nataliaschelehmenkina</div>
+
+    </div>
+        <div style="text-align: center;">
+        </div>
+    <div style="text-align: right;">
+        <h1>Форма обратной связи</h1>
+        <form action="/contacts" method="post">
+            <input type="text" name="name" placeholder="Ваше имя" required>
+            <br>
+            <input type="email" name="email" placeholder="Ваш Email" required>
+            <br>
+            <input type="text" name="content" placeholder="Ваше сообщение" required>
+            <br>
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Прайс</title>
+    <link rel="icon" href="/images/camera_logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style th:insert="~{blocks/style :: style}"></style>
+    <style>
+        .container2 {
+            display: flex; /* Делаем элементы в строку */
+            align-items: center; /* Выравниваем по центру */
+            gap: 20px; /* Отступ между фото и текстом */
+            max-width: 1200px; /* Ограничение ширины */
+            margin: 50px auto; /* Центрируем блок */
+            border: 1px solid #ddd; /* Рамка */
+            padding: 20px;
+            border-radius: 10px; /* Скругление углов */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
+        }
+
+        .container2 img {
+            width: 600px; /* Ширина изображения */
+            height: auto;
+            border-radius: 20px; /* Скругление */
+        }
+
+        .text {
+            max-width: 500px;
+        }
+
+        .text h2 {
+            margin: 0;
+            font-size: 22px;
+            color: #333;
+        }
+
+        .text p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <header th:insert="~{blocks/login :: login}"></header>
+    <header th:insert="~{blocks/header :: header}"></header>
+
+    <div class="container2">
+        <img src="/images/examples/2.jpg" alt="Фото">
+        <div class="text">
+            <h2>Свадебная фотосессия</h2>
+            <h1>1800 руб/час</h1>
+            <p> Стоимость оговаривается, в зависимости от даты/времени<p>
+            <p> Вы получаете:</p>
+            <p>• От 50-100 обработанных фотографий</p>
+            <p>• Готовые снимки на Облаке (сроки хранения 3-6 месяцев)</p>
+            <p>• Время обработки: 2-3 недели</p>
+            <p>Для записи через <a href="online-record">Онлайн-запись</a> забронируйте время начала съемки, и укажите длительность в пожеланиях </p>
+        </div>
+    </div>
+
+    <div class="container2" id="face">
+        <div class="text">
+            <h2>Индивидуальная фотосессия CLASSIC</h2>
+            <h1>1500 руб</h1>
+            <p> Время съемки - 1 час<p>
+            <p> Вы получаете:</p>
+            <p>• От 20-50 обработанных фотографий</p>
+            <p>• Рекомендации по месту съемки и образу</p>
+            <p>• Готовые снимки на Облаке (сроки хранения 3-6 месяцев)</p>
+            <p>• Время обработки: 1-2 недели</p>
+        </div>
+        <img src="/images/examples/6.jpg" alt="Фото">
+    </div>
+
+    <div class="container2" id="walk">
+        <img src="/images/examples/3.jpg" alt="Фото">
+        <div class="text">
+            <h2>Индивидуальная фотосессия MINI</h2>
+            <h1>1000 руб</h1>
+            <p> Время съемки - 30 минут<p>
+            <p> Вы получаете:</p>
+            <p>• От 15-30 обработанных фотографий</p>
+            <p>• Рекомендации по месту съемки и образу</p>
+            <p>• Готовые снимки на Облаке (сроки хранения 3-6 месяцев)</p>
+            <p>• Время обработки: 1-2 недели</p>
+        </div>
+    </div>
+
+    <div class="container2" id="study">
+        <div class="text">
+            <h2>Студийная фотосессия</h2>
+            <h1>1000 руб</h1>
+            <p> Время съемки - 30 минут<p>
+            <p> Вы получаете:</p>
+            <p>• От 15-30 обработанных фотографий</p>
+            <p>• Рекомендации по образу</p>
+            <p>• Готовые снимки на Облаке (сроки хранения 3-6 месяцев)</p>
+            <p>• Время обработки: 1-2 недели</p>
+        </div>
+        <img src="/images/examples/5.jpg" alt="Фото">
+    </div>
+
+    <div class="container2" id="family">
+        <img src="/images/examples/7.jpg" alt="Фото">
+        <div class="text">
+            <h2>Семейная фотосессия</h2>
+            <h1>1500 руб</h1>
+            <p> Время съемки - 1 час<p>
+            <p> Вы получаете:</p>
+            <p>• От 25-50 обработанных фотографий</p>
+            <p>• Рекомендации по месту съемки и образу</p>
+            <p>• Готовые снимки на Облаке (сроки хранения 3-6 месяцев)</p>
+            <p>• Время обработки: 1-2 недели</p>
+        </div>
+    </div>
+</body>
+</html>

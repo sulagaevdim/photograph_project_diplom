@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Статистика</title>
+    <link rel="icon" href="/images/camera_logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style th:insert="~{blocks/style :: style}"></style>
+
+</head>
+<body>
+<header th:insert="~{blocks/login-for-admin :: login-for-admin}"></header>
+<br>
+<header th:insert="~{adminPages/blocks/header :: header}"></header>
+<br>
+<div class="container">
+    <div  class="centered">
+        <tr th:each="state : ${states}">
+            <h2 th:text="${state}"></h2>
+        </tr>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Подтверждение записи</title>
+    <link rel="icon" href="/images/camera_logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style th:insert="~{userPages/blocks/style :: style}"></style>
+    <style th:insert="~{blocks/table-style :: table-style}"></style>
+</head>
+<body>
+    <header th:insert="~{blocks/login-for-user :: login-for-user}"></header>
+    <br>
+    <header th:insert="~{userPages/blocks/header :: header}"></header>
+    <div class="centered">
+        <h1>Подтвердите запись:</h1>
+        <h3 th:text="'Модель: '+ ${name} + ' ' + ${lastName}"></h3>
+        <h3 th:text="'Дата: ' + ${date}"></h3>
+        <h3 th:text="'Время: ' + ${time}"></h3>
+        <form class="login-form" method="post">
+            <p>
+                <label for="location" class="screenreader">Предпочитаемая локация: </label>
+                <input type="text" id="location" name="location" required autofocus>
+            </p>
+            <p>
+                <label for="phoneNumber" class="screenreader">Актуальный номер телефона: </label>
+                <input type="number" id="phoneNumber" name="phoneNumber" placeholder="введите номер телефона" required>
+            </p>
+            <p>
+                <label for="wishes" class="screenreader">Пожелания/примечания: </label>
+                <input type="text" id="wishes" name="wishes" placeholder="не обязательно">
+            </p>
+            <button type="submit" class="primary">Подтвердить</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById("login-form").action = window.location.href;
+    </script>
+</body>
+</html>

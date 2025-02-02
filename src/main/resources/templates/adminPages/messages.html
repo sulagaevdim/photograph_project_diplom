@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Сообщения</title>
+    <link rel="icon" href="/images/camera_logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style th:insert="~{blocks/style :: style}"></style>
+    <style th:insert="~{blocks/table-style :: table-style}"></style>
+
+</head>
+<body>
+    <header th:insert="~{blocks/login-for-admin :: login-for-admin}"></header>
+    <br>
+    <header th:insert="~{adminPages/blocks/header :: header}"></header>
+    <br>
+    <div class="container">
+        <div class="centered">
+            <div th:if="${#lists.isEmpty(messages)}">
+                <h1>Нет новых сообщений</h1>
+            </div>
+            <div th:unless="${#lists.isEmpty(messages)}">
+
+                <h2>Новые сообщения</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Дата отправки</th>
+                        <th>Имя</th>
+                        <th>Email</th>
+                        <th>Сообщение</th>
+                        <th>Действия</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="message : ${messages}">
+                        <td th:text="${message.date}"></td>
+                        <td th:text="${message.name}"></td>
+                        <td th:text="${message.email}"></td>
+                        <td th:text="${message.content}"></td>
+                        <td>
+                            <a th:href="'/admin/messages/del/' + ${message.id}">Удалить</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

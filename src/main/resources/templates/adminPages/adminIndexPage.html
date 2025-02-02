@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Панель управления фотографа</title>
+    <link rel="icon" href="/images/camera_logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style th:insert="~{blocks/style :: style}"></style>
+    <style th:insert="~{blocks/table-style :: table-style}"></style>
+</head>
+<body>
+<header th:insert="~{blocks/login-for-admin :: login-for-admin}"></header>
+<br>
+<header th:insert="~{adminPages/blocks/header :: header}"></header>
+<br>
+<div class="container">
+    <div class="centered">
+        <div th:if="${#lists.isEmpty(orders)}">
+            <br>
+            <h1 class="centered">На сегодня записей нет</h1>
+            <br>
+            <img src="/images/rest.jpg" alt="старик на гамаке">
+        </div>
+        <div th:unless="${#lists.isEmpty(orders)}">
+
+            <h1>Фотосессии на сегодня:</h1>
+            <table>
+                <thead>
+                <tr>
+                    <th>Время</th>
+                    <th>Локация</th>
+                    <th>Пожелания</th>
+                    <th>Клиент</th>
+                    <th>Номер телефона</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="order : ${orders}">
+                    <td th:text="${order.time}"></td>
+                    <td th:text="${order.location}"></td>
+                    <td th:text="${order.wishes}"></td>
+                    <td th:text="${order.fullName}"></td>
+                    <td th:text="${order.phoneNumber}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
