@@ -34,28 +34,14 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(registry -> {
-                    registry.requestMatchers("/index",
-                            "/login",
-                            "/contacts",
-                            "/price",
-                            "/gallery",
-                            "/registration",
-                            "/reviews",
-                            "/entrance",
-                            "/online-record",
-                            "/success",
-                            "/errorRegistration",
-                            "/",
-                            "/send-success",
-                            "/logout",
-                            "/images/**",
+                    registry.requestMatchers("/index","/login","/contacts","/price","/gallery",
+                            "/registration","/reviews","/entrance","/online-record","/success",
+                            "/errorRegistration", "/","/send-success","/logout","/images/**",
                             "/h2-console/**").permitAll(); // страницы, доступные абсолютно всем
                     registry.requestMatchers("/admin/**").hasAuthority("ADMIN"); // страницы, доступные только админу
                     registry.requestMatchers("/user/**").hasAuthority("USER"); // страницы, доступные только зарегистрированному пользователю
-                    registry.anyRequest().permitAll(); //все что не попало выше - только авторизованным п-лям
+                    registry.anyRequest().permitAll(); //все что не попало выше - доступно всем
                 })
-                //.formLogin(it -> it.loginPage("/entrance"))
-                //.formLogin(Customizer.withDefaults()) //стандартная форма авторизации
                 .formLogin(form -> form
                         .loginPage("/login")
                         .loginProcessingUrl("/login") // URL, на который отправляются данные формы

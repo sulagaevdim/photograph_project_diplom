@@ -10,14 +10,10 @@ import java.util.*;
 
 @Service
 public class UserService {
-    private final OrderService orderService;
-    private final FreeDayService freeDayService;
     private final UserRepository repository;
     private final MyPasswordEncoder encoder;
 
-    public UserService(OrderService orderService, FreeDayService freeDayService, UserRepository repository, MyPasswordEncoder encoder) {
-        this.orderService = orderService;
-        this.freeDayService = freeDayService;
+    public UserService(UserRepository repository, MyPasswordEncoder encoder) {
         this.repository = repository;
         this.encoder = encoder;
     }
@@ -63,7 +59,4 @@ public class UserService {
         user.setSaleLevel(10);
         repository.save(user);
     }
-
-
-
 }
